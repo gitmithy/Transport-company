@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}index.css"/>
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}base.css"/>
+	    <script language="javascript" type="text/javascript" src="{JS_PATH}jquery1.42.min.js"></script>
+        <script language="javascript" type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+		<script language="JavaScript" type="text/javascript" src="{JS_PATH}jquery.cxscroll.js" ></script>
+		<script language="JavaScript" type="text/javascript" src="{JS_PATH}script.js" ></script>
+		
+	</head>
+<body>
+
+		<div class="header">
+			<div class="top"></div>
+			<div class="top1">
+				<div class="topcontainer">
+					<a href="index.php" class="logo"></a>
+					<div class="sousuo">
+						<input type="text" class="sousuotext"/>
+						<input type="submit" value="搜索" class="button1" />
+					</div>	
+				</div>	
+			</div>
+		</div>
+		<div class="nav">
+				<div class="navcontainer">
+					
+						<ul id="navul" class="cl">
+							<li class="navhome"><a href="#">首页</a></li>
+							<li>
+								<a href="#">企业概况</a>
+								<ul>
+									<li><a href="#">公司简介</a></li>
+									<li><a href="#">领导关怀</a></li>
+									<li><a href="#">经营团队</a></li>
+									<li><a href="#">发展历程</a></li>
+									<li><a href="#">组织机构</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">新闻中心</a>
+								<ul>
+									<li><a href="#">公司新闻</a></li>
+									<li><a href="#">基层动态</a></li>
+									<li><a href="#">行业咨询</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">企业文化</a>
+								<ul>
+									<li><a href="#">党建学习</a></li>
+									<li><a href="#">资质荣誉</a></li>
+									<li><a href="#">员工风貌</a></li>
+									<li><a href="#">文化生活</a></li>
+									<li><a href="#">先进典型</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">业务导航</a>
+
+							</li>
+							<li>
+								<a href="#">客户案例</a>
+
+							</li>
+							<li>
+								<a href="#">网上办公</a>
+								<ul>
+									<li><a href="#">通知公告</a></li>
+									<li><a href="#">业务交流</a></li>
+									<li><a href="#">政策法规</a></li>
+									<li><a href="#">下载中心</a></li>
+								</ul>
+							</li>
+			
+						</ul>
+					</div>
+				
+				<script  type="text/javascript"> 
+				$(document).ready(function(){
+					
+					$(".navbg").capacityFixed();
+					
+					$("#navul > li").not(".navhome").hover(function(){
+						$(this).addClass("navmoon");
+					},function(){
+						$(this).removeClass("navmoon");
+					});
+					
+				});
+				</script>
+			</div>
+
+
+		<div class="toppic">
+			<a href="index.php"><img src="{IMG_PATH}/top.png"></a>
+	
+		</div>
+		
+		
+		<div class="index-main">
+			<div class="content1">
+				<div class="con1-lft">
+					<div class="focusBox">
+						<ul class="pic">
+							{pc:content action="lists" catid="19" order="id desc" thumb="1" moreinfo=""  num="6" }
+							{loop $data $n $r}
+								<li style="display: block;"><a href="$r[url]}" target="_blank" ><img src="{$r[thumb]}" width="500px" height="280px"/></a></li>
+
+						</ul>
+						<div class="txt-bg"></div>
+						<div class="txt">
+							<ul>
+								<li><a href="#">{$r[title]}</a></li>
+							{/loop}
+							{/pc}	
+							</ul>
+						</div>			
+						<ul class="num">
+							<li><a>1</a><span></span></li>
+							<li><a>2</a><span></span></li>
+							<li><a>3</a><span></span></li>
+							<li><a>4</a><span></span></li>
+						</ul>
+					</div>
+					<script type="text/javascript">
+						jQuery(".focusBox").slide({ titCell:".num li", mainCell:".pic",effect:"fold", autoPlay:true,trigger:"click",
+						startFun:function(i){
+						jQuery(".focusBox .txt li").eq(i).animate({"bottom":0}).siblings().animate({"bottom":-36});
+						}
+						});	
+					</script>
+			</div>
+				
+				
+				
+				
+				<div class="con1-rht">
+					<a href="index.php"><img src="{IMG_PATH}/more.png" /></a>
+					<ul>
+								{php $where = " status=99 AND catid=18 AND posids<>1";}
+					            {pc:content action="lists" catid="18"  where="$where" order="id" thumb="" moreinfo=""  num="7" }
+					            {loop $data $n $r}
+						
+								<li><span>{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank" style="font-family: 宋体;">{$r[title]}</a></li>
+								{/loop}
+					            {/pc}
+
+					</ul>
+				</div>	
+			</div>
+			<div class="banner">		
+			</div>
+			<div class="content2">
+				<div class="con2-lft">
+					<div class="slideTxtBox">
+						<div class="hd">
+						<ul>
+							<li class="on"><a href="#">通知公告</a></li>
+							<li class="" style="margin-left: 10px;"><a href="#">行业动态</a></li>
+							<li><a href="index.php"><img src="{IMG_PATH}/more.png" /></a></li>					
+						</ul>
+						</div>
+						<div class="bd">
+							<ul style="display: block;">
+								{php $where = " status=99 AND catid=31 AND posids<>1";}
+					            {pc:content action="lists" catid="31"  where="$where" order="id" thumb="" moreinfo=""  num="7" }
+					            {loop $data $n $r}
+								<li><span class="date">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+								{/loop}
+					            {/pc}
+							</ul>
+							<ul style="display: none;">
+								{php $where = " status=99 AND catid=31 AND posids<>1";}
+					            {pc:content action="lists" catid="31"  where="$where" order="id" thumb="" moreinfo=""  num="7" }
+					            {loop $data $n $r}
+								<li><span class="date">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+								{/loop}
+					            {/pc}
+							</ul>
+							
+						</div>
+					</div>
+					<script type="text/javascript">jQuery(".slideTxtBox").slide();</script>	
+				</div>
+				<div class="con2-ctr">
+					<div class="slideTxtBox">
+						<div class="hd">
+						<ul>
+							<li class="on"><a href="#" style="font-family: '宋体';">党建学习</a></li>
+							<li class="" style="margin-left: 10px;" style="font-family: '宋体';"><a href="#">政策法规</a></li>
+							<li><a href="index.php"><img src="{IMG_PATH}/more.png" /></a></li>		
+							
+						</ul>
+						</div>
+						<div class="bd">
+							<ul style="display: block;">
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">中国打破了世界软件巨头规则</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">口语：会说中文就能说英语！</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学英语送ipad2,45天突破听说</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学外语，上北外！</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">那些无法理解的荒唐事</a></li>
+							</ul>
+							<ul style="display: none;">
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">名师教作文：３妙招巧写高分</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">耶鲁小子：教你备考SAT</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">施强：高端专业语言教学</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">【推荐】名校英语方法曝光！</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2012高考“考点”大曝光!!</a></li>
+								<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">涨价仍爆棚假日旅游冰火两重天</a></li>
+							</ul>
+							
+						</div>
+					</div>
+					<script type="text/javascript">jQuery(".slideTxtBox").slide();</script>		
+				</div>
+				<div class="con2-rht">
+					<div class="sidebar">
+						<a><img src="{IMG_PATH}/side1.png" >  </a>
+						<a><img src="{IMG_PATH}/side2.png" >  </a>
+						<a><img src="{IMG_PATH}/side3.png" >  </a>
+						<a><img src="{IMG_PATH}/side4.png" >  </a>					
+					</div>			
+				</div>		
+			</div>
+			<div class="content3">
+				
+				<div class="con3-lft">
+					<ul style="font-size: 18px; color: #565656; border-bottom: 1px solid lavender; height: 25px; width: 670px;">
+						<li class="con3nav">
+							<a>服务项目</a>
+							
+						</li>
+						<a style="float: right; margin-right: 5px; " href="index.php" ><img src="{IMG_PATH}/more.png"></a>
+					</ul>
+									<div class="flash">
+										<div class="con">
+											<ul class="ul">
+												<li class="current ti1">
+													<h3><br>01<br>人群控制服务</h3>
+													
+
+													<div class="show">
+														
+														<div class="sidecon" style="font-size: 4px;"><a ><img src="{IMG_PATH}/2015-07-17_155500.png" align="left"></a>保安局维护指定地点、场所、部位等人群聚集地治安秩序的服务。为开业庆典、体育比赛、展览活动、等大型盛事提供特勤服务</div>
+													</div>
+												</li>
+												<li class="ti2">
+													<h3><br>02<br>人群控制服务</h3>
+
+													<div class="show">
+														
+														<div class="sidecon" style="font-size: 4px;"><a ><img src="{IMG_PATH}/2015-07-17_155500.png" align="left"></a>保安局维护指定地点、场所、部位等人群聚集地治安秩序的服务。为开业庆典、体育比赛、展览活动、等大型盛事提供特勤服务</div>
+													</div>
+												</li>
+												<li class="ti3">
+													<h3><br>03<br>人群控制服务</h3>
+
+													<div class="show">
+														
+														<div class="sidecon" style="font-size: 4px;"><a ><img src="{IMG_PATH}/2015-07-17_155500.png" align="left"></a>保安局维护指定地点、场所、部位等人群聚集地治安秩序的服务。为开业庆典、体育比赛、展览活动、等大型盛事提供特勤服务</div>
+													</div>
+												</li>
+												<li class="ti4">
+													<h3><br>04<br>人群控制服务</h3>
+
+													<div class="show">
+														
+														<div class="sidecon" style="font-size: 4px;"><a ><img src="{IMG_PATH}/2015-07-17_155500.png" align="left"></a>保安局维护指定地点、场所、部位等人群聚集地治安秩序的服务。为开业庆典、体育比赛、展览活动、等大型盛事提供特勤服务</div>
+													</div>
+												</li>
+
+									
+									
+											</ul>
+										</div>
+									</div>
+									
+									
+									<script type="text/javascript">
+									var timer=null;
+									var i=0;
+									$(function(){
+										$(".flash .con ul li").mouseover(function(){
+											clearInterval(timer);
+										});
+										$(".flash .con ul li").click(function(){
+											$(this).stop().animate({width:"460px"},300).siblings().stop().animate({width:"48px"},300)
+										});
+										$(".flash .con ul li").mouseout(function(){
+											timer=setInterval("startMove()",2000)
+										});
+										
+									})
+									function startMove(){
+									  i++;
+									  if(i>$(".flash .con ul li").length-1){i=0}
+									  $(".flash .con ul li").stop().eq(i).animate({width:"460px"},300).siblings().stop().animate({width:"48px"},300)
+									};
+									timer=setInterval("startMove()",2000)
+									</script>
+			
+				</div>			
+				<div class="con3-rht">
+					<ul>
+						<li class="con3nav">
+							<a>视频点播</a>
+						</li>
+						<a style="float: right; margin-right: 15px;" href="index.php">  <img src="{IMG_PATH}/more.png"></a>
+					</ul>
+	
+				</div>		
+			</div>
+			<div class="content4">
+				<ul style="font-size: 18px; color: #565656; border-bottom: 1px solid lavender; height: 25px; margin-left: 24px; margin-top: 20px;" >
+					<li class="con4nav">
+						<a>员工风采</a> 
+					</li>
+					<a style="float: right;"><img src="{IMG_PATH}/more.png" /></a>
+				</ul>
+				<div id="pic_list_1" class="scroll_horizontal">
+					<a class="next"></a>
+					<a class="prev"></a>
+						<div class="box">
+							<ul class="list">
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌 </a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌 </a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+								<li style="text-align: center;"><a href="#"><img src="http://61.184.91.2:823/baoan/uploadfile/2015/0710/20150710051823376.jpg" width="160" height="120" alt="员工风貌"><br />员工风貌</a></li>
+							</ul>
+						</div>
+				</div>
+				<script src="js/jquery.cxscroll.min.js"></script>
+				<script>
+				$("#pic_list_1").cxScroll();
+				</script>	
+			</div>				
+		</div>
+		<div class="bottom1">
+			<a><img src="{IMG_PATH}/bottom.png"></a>	
+		</div>
+		<div class="footer">
+			<div class="fot-con">
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>	
+			<div class="fttxt">
+				<ul>
+					<li>十堰市武装押运护卫保安服务有限公司版权所有  地址：十堰朝阳中路黄冈巷6号  电话：0719-8673802  技术支持：秦楚网技术中心</li>
+				</ul>			
+			</div>		
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	    <script language="javascript" type="text/javascript" src="js/jquery1.42.min.js"></script>
+        <script language="javascript" type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+		<script language="JavaScript" type="text/javascript" src="js/jquery.cxscroll.js" ></script>
+		<script language="JavaScript" type="text/javascript" src="js/script.js" ></script>
+		
+	</head>
+<body>
+
+		<div class="header">
+			<div class="top"></div>
+			<div class="top1">
+				<div class="topcontainer">
+					<a href="index.php" class="logo"></a>
+					<div class="sousuo">
+						<input type="text" class="sousuotext"/>
+						<input type="submit" value="搜索" class="button1" />
+					</div>	
+				</div>	
+			</div>
+		</div>
+		<div class="nav">
+				<div class="navcontainer">
+					
+						<ul id="navul" class="cl">
+							<li class="navhome"><a href="#">首页</a></li>
+							<li>
+								<a href="#">企业概况</a>
+								<ul>
+									<li><a href="#">公司简介</a></li>
+									<li><a href="#">领导关怀</a></li>
+									<li><a href="#">经营团队</a></li>
+									<li><a href="#">发展历程</a></li>
+									<li><a href="#">组织机构</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">新闻中心</a>
+								<ul>
+									<li><a href="#">公司新闻</a></li>
+									<li><a href="#">基层动态</a></li>
+									<li><a href="#">行业咨询</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">企业文化</a>
+								<ul>
+									<li><a href="#">党建学习</a></li>
+									<li><a href="#">资质荣誉</a></li>
+									<li><a href="#">员工风貌</a></li>
+									<li><a href="#">文化生活</a></li>
+									<li><a href="#">先进典型</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">业务导航</a>
+
+							</li>
+							<li>
+								<a href="#">客户案例</a>
+
+							</li>
+							<li>
+								<a href="#">网上办公</a>
+								<ul>
+									<li><a href="#">通知公告</a></li>
+									<li><a href="#">业务交流</a></li>
+									<li><a href="#">政策法规</a></li>
+									<li><a href="#">下载中心</a></li>
+								</ul>
+							</li>
+			
+						</ul>
+					</div>
+				
+				<script  type="text/javascript"> 
+				$(document).ready(function(){
+					
+					$(".navbg").capacityFixed();
+					
+					$("#navul > li").not(".navhome").hover(function(){
+						$(this).addClass("navmoon");
+					},function(){
+						$(this).removeClass("navmoon");
+					});
+					
+				});
+				</script>
+			</div>

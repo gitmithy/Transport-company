@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}index.css"/>
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}base.css"/>
+	    <script language="javascript" type="text/javascript" src="{JS_PATH}jquery1.42.min.js"></script>
+        <script language="javascript" type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+		<script language="JavaScript" type="text/javascript" src="{JS_PATH}jquery.cxscroll.js" ></script>
+		<script language="JavaScript" type="text/javascript" src="{JS_PATH}script.js" ></script>
+		
+	</head>
+<body>
+
+		<div class="header">
+			<div class="top"></div>
+			<div class="top1">
+				<div class="topcontainer">
+					<a href="index.php" class="logo"></a>
+					<div class="sousuo">
+						<input type="text" class="sousuotext"/>
+						<input type="submit" value="搜索" class="button1" />
+					</div>	
+				</div>	
+			</div>
+		</div>
+		<div class="nav">
+				<div class="navcontainer">
+					
+						<ul id="navul" class="cl">
+							<li class="navhome"><a href="#">首页</a></li>
+							<li>
+								<a href="#">企业概况</a>
+								<ul>
+									<li><a href="#">公司简介</a></li>
+									<li><a href="#">领导关怀</a></li>
+									<li><a href="#">经营团队</a></li>
+									<li><a href="#">发展历程</a></li>
+									<li><a href="#">组织机构</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">新闻中心</a>
+								<ul>
+									<li><a href="#">公司新闻</a></li>
+									<li><a href="#">基层动态</a></li>
+									<li><a href="#">行业咨询</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">企业文化</a>
+								<ul>
+									<li><a href="#">党建学习</a></li>
+									<li><a href="#">资质荣誉</a></li>
+									<li><a href="#">员工风貌</a></li>
+									<li><a href="#">文化生活</a></li>
+									<li><a href="#">先进典型</a></li>
+
+								</ul>
+							</li>
+							<li>
+								<a href="#">业务导航</a>
+
+							</li>
+							<li>
+								<a href="#">客户案例</a>
+
+							</li>
+							<li>
+								<a href="#">网上办公</a>
+								<ul>
+									<li><a href="#">通知公告</a></li>
+									<li><a href="#">业务交流</a></li>
+									<li><a href="#">政策法规</a></li>
+									<li><a href="#">下载中心</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				
+				<script  type="text/javascript"> 
+				$(document).ready(function(){
+					
+					$(".navbg").capacityFixed();
+					
+					$("#navul > li").not(".navhome").hover(function(){
+						$(this).addClass("navmoon");
+					},function(){
+						$(this).removeClass("navmoon");
+					});
+					
+				});
+				</script>
+			</div>
+			
+		<div class="cat-main">
+			<div class="list box">
+				<dl>
+					<dt>您的位置：首页 > {catpos($catid)} 列表</dt>
+				</dl>	
+			</div>
+			<div class="cat-con1-lft fl">
+			{php $j=1;}
+			{loop subcat($catid) $v}
+			{php if($v['type']!=0) continue;}
+				<div class="cat-area" {if $j%2==1}style="margin-right:10px"{/if}>
+					<div class="cat-nav">
+						<ul style="font-size: 18px; color: #565656; border-bottom: 1px solid lavender; height: 25px;">
+							<li class="con3nav">
+								<a>{$v[catname]}</a>								
+							</li>
+							<a style="float: right; margin-right: 5px; " href="{$v[url]}" ><img src="{IMG_PATH}/more.png"></a>
+						</ul>
+					</div>
+					<div class="cat-content">
+						{pc:content action="lists" catid="$v[catid]" num="6" order="id DESC"}
+						<ul>
+							{loop $data $r}
+								<li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+							{/loop}
+						</ul>
+						{/pc}
+					</div>						
+				</div>
+			{$j++}
+			{/loop}
+			</div>
+			<div class="cat-con1-rht fr">
+				
+					<div class="sidebar">
+						<a><img src="{IMG_PATH}/side1.png">  </a>
+						<a><img src="{IMG_PATH}/side2.png">  </a>
+						<a><img src="{IMG_PATH}/side3.png">  </a>
+						<a><img src="{IMG_PATH}/side4.png">  </a>
+						
+						
+						
+					</div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				<ul style="font-size: 18px; color: #565656; border-bottom: 1px solid lavender; height: 200px; margin-left: 20px; width: 270px; margin-top: 20px; float: left;">
+							<li class="con3nav">
+								<a>视频点播</a>								
+							</li>
+							<a style="float: right; margin-right: 5px; " href="index.php" ><img src="{IMG_PATH}/more.png"></a>
+				</ul>
+
+			</div>
+			
+			
+			
+			
+		</div>
+		
+
+		<div class="footer">
+			<div class="fot-con">
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt>企业概况</dt>
+					<dd>
+						<ul>
+							<li><a>公司简介</a></li>
+							<li><a>领导关怀</a></li>
+							<li><a>经营团队</a></li>
+							<li><a>组织机构</a></li>
+							<li><a>发展历程</a></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			
+			<div class="fttxt">
+				<ul>
+					<li>十堰市武装押运护卫保安服务有限公司版权所有  地址：十堰朝阳中路黄冈巷6号  电话：0719-8673802  技术支持：秦楚网技术中心</li>
+				</ul>
+				
+				
+			</div>
+			
+			
+		</div>
